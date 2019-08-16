@@ -1,10 +1,15 @@
-
-  <div [ngClass]= "{'list-group-item' : true,
-  'list-group-item-success' : postLoveIts>0,
-  'list-group-item-danger' : postLoveIts<0 }">
-      <div class="pull-right">{{ postCreatedAt | date:'dd/MM/yyyy hh:mm:ss a' }}</div>               
-      <h2 style="font-weight: bold"> {{ postTitle }} </h2>    
-  <p>{{ postContent }}</p>
-  <button class="btn btn-success" (click)="increaseLove(postLoveIts)">Love It!</button> 
-  <button class="btn btn-danger" (click)="decreaseLove(postLoveIts)">Don't love it!</button>    
-  </div> 
+<div [ngClass]= "{'list-group-item' : true,
+                'list-group-item-success' : post['loveIts']>0,
+                'list-group-item-danger' : post['loveIts']<0 }">
+  <div>
+    <span class="pull-right">{{ post['created_at'] | date:'dd/MM/yyyy hh:mm:ss a' }}</span>               
+    <h2> {{ post['title'] }} </h2>  
+  </div>  
+  <p>{{ post['content'] }}</p>
+  
+  <span>
+      <button class="btn btn-success" (click)="increaseLove()">Love It!</button> 
+      <button class="btn btn-danger" (click)="decreaseLove()">Don't love it!</button>
+      <button class="pull-right btn btn-danger" (click)="supprimerPost(post)">Supprimer post</button>   
+  </span>
+</div> 

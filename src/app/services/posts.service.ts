@@ -7,9 +7,7 @@ import { Injectable } from '@angular/core';
   })
 export class PostsService {
     posts: Post[] = [
-        new Post("Mon premier Post!!!!!","du contenu de grande qualité pour un TP de qualité"),
-        new Post("Mon deuxième Post"," aujourd'hui je vais apprendre Angular, c'est rigolo"),
-        new Post("Un autre Post", " c'est rigolo mais c'est salop! Et il faut d'abord connaitre TypeScript!")
+        
     ];
  
     postsSubject = new Subject<Post[]>();
@@ -22,5 +20,21 @@ export class PostsService {
 
     addPost(post: Post) {
         this.posts.push(post);
+        this.emitPosts();
+    }
+
+    removePost(post: Post) {
+        const postIndexToRemove = this.posts.findIndex(
+            (postElt) => {
+                if(postElt === post) {
+                    return true;
+                }
+            }
+        );
+        console.log('post: ', post);
+        console.log('postIndexToRemove', postIndexToRemove);
+        this.posts.splice(postIndexToRemove,1);
+        console.log('posts : ', this.posts)
+        this.emitPosts();
     }
 }

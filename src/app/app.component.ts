@@ -8,7 +8,4 @@ import { Post } from 'src/app/models/Post.model';
 })
 export class AppComponent {
 
-  title1 = 'blog-angular';
-  
-
 }
