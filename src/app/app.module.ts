@@ -13,7 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes : Routes = [
   {path: 'posts', component: PostListComponent},
-  {path: 'post-form', component: PostFormComponent}
+  {path: 'post-form', component: PostFormComponent},
+  {path: '', redirectTo: 'posts', pathMatch: 'full'},
+  {path: '**', redirectTo: 'posts'}
 ]
 @NgModule({
   declarations: [

@@ -26,7 +26,6 @@ export class PostListItemComponent implements OnInit {
   }
 
   supprimerPost(post: Post) {
-    console.log('post : ', post);
     this.postsService.removePost(post);
   }
 

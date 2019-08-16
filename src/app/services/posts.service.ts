@@ -30,11 +30,8 @@ export class PostsService {
                     return true;
                 }
             }
-        );
-        console.log('post: ', post);
-        console.log('postIndexToRemove', postIndexToRemove);
+        );       
         this.posts.splice(postIndexToRemove,1);
-        console.log('posts : ', this.posts)
         this.emitPosts();
     }
 }
